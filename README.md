@@ -11,7 +11,7 @@
 + *Dev-Cpp*
 
 ### 檔案列表：
-Strcat.c
+StrStrcat.c
 > 字串合併練習  
 > 2022/09/23
 
