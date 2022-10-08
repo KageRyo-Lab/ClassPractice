@@ -26,7 +26,7 @@ int main(){
 		printf("(2)插入節點(Insert new node)\n");
 		printf("(3)刪除節點(Delete node)\n");
 		printf("(0)結束(exit)=>");
-        scanf("%d",&sel);
+     		scanf("%d",&sel);
 		
 		// 判斷
 		switch(sel){
