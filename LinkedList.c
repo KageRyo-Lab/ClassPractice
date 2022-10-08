@@ -99,21 +99,24 @@ void AddNode(Node **start, int value){
 // 插入節點
 void InsertNode(Node **start, int afterInsert, int value){
 	Node *now = *start;
+	int t=0;
 	while(now != NULL){
-		if(afterInsert == now->data){
+		if(afterInsert == 0){
+			Node *newNode = (Node*)malloc(sizeof(Node));
+			newNode->data = now->data;
+			newNode->next = now->next;
+			now->data = value;
+			now->next = newNode;
+			break;
+		}else if(t+1 == afterInsert){
 			Node *newNode = (Node*)malloc(sizeof(Node));
 			newNode->data = value;
-			newNode->next = NULL;
-			if(now->next == NULL){
-				now->next = newNode;
-				break;
-			}else{
-				newNode->next = now->next;
-				now->next = newNode;
-				break;
-			}
+			newNode->next = now->next;;
+			now->next = newNode;
+			break; 
 		}
 		now = now->next;
+		t++;
 	}
 }
 // 刪除節點
