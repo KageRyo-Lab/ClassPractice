@@ -15,41 +15,41 @@ void DeleteNode(Node **start, int value);
 
 int main(){
 	int sel, add, ins, ins_location, del;
-	Node *first = NULL;	// ­º¸`ÂI 
+	Node *first = NULL;	// é¦–ç¯€é» 
 	while(true){
-		// ¦L¥X¦ê¦C¤º®e 
-		printf("¦ê¦C¤º®e¡]Content of list¡^=>");
+		// å°å‡ºä¸²åˆ—å…§å®¹ 
+		printf("ä¸²åˆ—å…§å®¹ï¼ˆContent of listï¼‰=>");
 		PrintList(first);
 			
-		// UI & ¿ï¾Ü 
-		printf("(1)ªş¥[¸`ÂI(Append new node)\n");
-		printf("(2)´¡¤J¸`ÂI(Insert new node)\n");
-		printf("(3)§R°£¸`ÂI(Delete node)\n");
-		printf("(0)µ²§ô(exit)=>");
+		// UI & é¸æ“‡ 
+		printf("(1)é™„åŠ ç¯€é»(Append new node)\n");
+		printf("(2)æ’å…¥ç¯€é»(Insert new node)\n");
+		printf("(3)åˆªé™¤ç¯€é»(Delete node)\n");
+		printf("(0)çµæŸ(exit)=>");
         scanf("%d",&sel);
 		
-		// §PÂ_
+		// åˆ¤æ–·
 		switch(sel){
 			case 0:
-				// ÄÀ©ñ°O¾ĞÅéªÅ¶¡ 
+				// é‡‹æ”¾è¨˜æ†¶é«”ç©ºé–“ 
 				FreeList(first);
 				return 0;
 			case 1:
-				printf("½Ğ¿é¤J±ıªş¥[¤§¸ê®Æ(Input new data)=>");
+				printf("è«‹è¼¸å…¥æ¬²é™„åŠ ä¹‹è³‡æ–™(Input new data)=>");
 				scanf("%d",&add);
 				AddNode(&first, add);
 				printf("\n");
 				break;
 			case 2:
-				printf("½Ğ¿é¤J±ı´¡¤J¤§¸ê®Æ(Insert new data)=>");
+				printf("è«‹è¼¸å…¥æ¬²æ’å…¥ä¹‹è³‡æ–™(Insert new data)=>");
 				scanf("%d",&ins);
-				printf("½Ğ¿é¤J±ı´¡¤J¤§¦ì¸m(New Position)=>");
+				printf("è«‹è¼¸å…¥æ¬²æ’å…¥ä¹‹ä½ç½®(New Position)=>");
 				scanf("%d",&ins_location);
 				InsertNode(&first, ins_location, ins);
 				printf("\n");
 				break;
 			case 3:
-				printf("½Ğ¿é¤J±ı§R°£¤§¸ê®Æ(Data to be deleted)=>");
+				printf("è«‹è¼¸å…¥æ¬²åˆªé™¤ä¹‹è³‡æ–™(Data to be deleted)=>");
 				scanf("%d",&del);
 				DeleteNode(&first, del);
 				printf("\n");
@@ -60,7 +60,7 @@ int main(){
 		}
 	}
 }
-// ¦L¥X¦ê¦C¤º®e 
+// å°å‡ºä¸²åˆ—å…§å®¹ 
 void PrintList(Node *node){
 	while(node != NULL){
 		printf("%d ", node->data);
@@ -68,7 +68,7 @@ void PrintList(Node *node){
 	}
 	printf("\n");
 }
-// ÄÀ©ñ°O¾ĞÅéªÅ¶¡
+// é‡‹æ”¾è¨˜æ†¶é«”ç©ºé–“
 void FreeList(Node *node){
 	Node *now, *tmp;
 	now = node;
@@ -78,7 +78,7 @@ void FreeList(Node *node){
 		free(tmp);
 	}
 }
-// ªş¥[¸`ÂI 
+// é™„åŠ ç¯€é» 
 void AddNode(Node **start, int value){
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = value;
@@ -96,7 +96,7 @@ void AddNode(Node **start, int value){
 		return;
 	}
 }
-// ´¡¤J¸`ÂI
+// æ’å…¥ç¯€é»
 void InsertNode(Node **start, int afterInsert, int value){
 	Node *now = *start;
 	int t=0;
@@ -119,7 +119,7 @@ void InsertNode(Node **start, int afterInsert, int value){
 		t++;
 	}
 }
-// §R°£¸`ÂI
+// åˆªé™¤ç¯€é»
 void DeleteNode(Node **start, int value){
 	Node *now = *start;
 	Node *tmp;
