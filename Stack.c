@@ -1,39 +1,95 @@
 #include<stdio.h>
 #include<stdlib.h>
-// çµæ§‹ 
-typedef struct tagStackList{
+#define true 1 
+#define false 0
+
+typedef struct node{
 	int data;
-	struct tagStackList *next;
-}StackList;
-// ç¨‹å¼
-int push(StackList *,int X);
-int pop(StackList *,int *);
-// ä¸»ç¨‹å¼ 
+	struct node *next;
+}Node;
+
+void PushStack(Node **start, int value);
+void PopStack(Node **start);
+void PrintStack(Node *node);
+void FreeStack(Node *node);
+
 int main(){
-	// åˆ¤æ–·å †ç–Šè³‡æ–™ï¼Œæœ‰è³‡æ–™å°±å°å‡ºä¾†
-	 
-	// UI 
-	printf("(1)PUSHè³‡æ–™ (2)POPè³‡æ–™ (0)çµæŸ : ");
+	int sel,data;
+	Node *first=NULL;
+	while(true){
+		// PRINT
+		if(first = NULL){
+			printf("°ïÅ|¬°ªÅ\n");
+		}else{
+			PrintStack(first);
+		}
+		printf("\n")
+		// UI & SELECT 
+		printf("(1)PUSH¸ê®Æ (2)POP¸ê®Æ (0)µ²§ô : ");
+		scanf("%d",&sel);
+		switch(sel){
+			case 0:
+				// EXIT 
+				FreeStack(first);
+				return 0;
+			case 1:
+				// PUSH
+				print("½Ð¿é¤J±ýPUSHªº¸ê®Æ => ")
+				sacnf("&d",&data);
+				PushStack&first,data);
+				printf("\n")
+			case 2:
+				// POP
+				if(first = NULL){
+					printf("°ïÅ|¤w¸g¬OªÅªº¤F¡I\n")
+				}else{
+					PopStack(&first);
+				}
+				printf("\n")
+			default:
+				// ERROR
+				printf("¿ï¶µ¤£¦s¦b¡A½Ð­«·s¿é¤J¡I\n")
+				printf("\n")
+				break;
+		}
+	}
 }
 // PUSH
-int push(StackList *S,int X){
-	StackList *p;
-	if((p=(StackList *)malloc(sizeof(StackList))) == NULL){
-		return false;
-	} 
-	p->data =X;
-	p->next =S->next;
-	S->next =p;
-	return true;
+void PushStack(Node **start, int value){
+	Node *newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = value;
+	newNode->next = NULL;
+	if(*start == NULL){
+		*start = newNode;
+		return;
+	}else{
+		newNode->next = *start;
+		*start = newNode;
+		return;
 }
 // POP
-int pop(StackList *S,int *X){
-	StackList *p= S->next;
-	if(p==NULL){
-		return false;
+void PopStack(Node **start){
+	Node *now = *start;
+	*start = now->next;
+	printf("POP ¥X : %d\n",now->data);
+	free(now);
+	return; 
+}
+// ¦L¥X°ïÅ|¤º®e 
+void PrintStack(Node *node){
+	while(node != NULL){
+		printf("%d ", node->data);
+		node = node->next;
 	}
-	*X =p->data;
-	S->next =p->next;
-	free(p);
-	return true;
+	printf("\n");
+}
+// ÄÀ©ñ°O¾ÐÅéªÅ¶¡
+void FreeStack(Node *node){
+	Node *now, *tmp;
+	now = node;
+	while(now != NULL){
+		tmp = now;
+		now = now->next;
+		free(tmp);
+	}
 }
