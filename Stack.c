@@ -34,8 +34,8 @@ int main(){
 				return 0;
 			case 1:
 				// PUSH
-				print("請輸入欲PUSH的資料 => ");
-				sacnf("&d",&data);
+				printf("請輸入欲PUSH的資料 => ");
+				scanf("&d",&data);
 				PushStack(&first,data);
 				printf("\n");
 			case 2:
