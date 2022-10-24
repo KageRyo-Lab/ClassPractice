@@ -37,7 +37,7 @@ int main(){
 				print("請輸入欲PUSH的資料 => ");
 				sacnf("&d",&data);
 				PushStack&first,data);
-				printf("\n")
+				printf("\n");
 			case 2:
 				// POP
 				if(first = NULL){
@@ -45,11 +45,11 @@ int main(){
 				}else{
 					PopStack(&first);
 				}
-				printf("\n")
+				printf("\n");
 			default:
 				// ERROR
-				printf("選項不存在，請重新輸入！\n")
-				printf("\n")
+				printf("選項不存在，請重新輸入！\n");
+				printf("\n");
 				break;
 		}
 	}
