@@ -23,7 +23,7 @@ int main(){
 		}else{
 			PrintStack(first);
 		}
-		printf("\n")
+		printf("\n");
 		// UI & SELECT 
 		printf("(1)PUSH資料 (2)POP資料 (0)結束 : ");
 		scanf("%d",&sel);
