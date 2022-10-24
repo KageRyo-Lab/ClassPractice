@@ -36,7 +36,7 @@ int main(){
 				// PUSH
 				print("請輸入欲PUSH的資料 => ");
 				sacnf("&d",&data);
-				PushStack&first,data);
+				PushStack(&first,data);
 				printf("\n");
 			case 2:
 				// POP
