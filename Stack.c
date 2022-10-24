@@ -14,16 +14,20 @@ void PrintStack(Node *node);
 void FreeStack(Node *node);
 
 int main(){
-	int sel,data;
+	int sel,pushData,top=1;
 	Node *first=NULL;
 	while(true){
 		// PRINT
-		if(first = NULL){
+		if(first == NULL){
 			printf("堆疊為空\n");
 		}else{
+			printf("堆疊內容由上而下：\n");
 			PrintStack(first);
 		}
 		printf("\n");
+		if(top==1){
+			top=0;
+		}
 		// UI & SELECT 
 		printf("(1)PUSH資料 (2)POP資料 (0)結束 : ");
 		scanf("%d",&sel);
@@ -35,13 +39,13 @@ int main(){
 			case 1:
 				// PUSH
 				printf("請輸入欲PUSH的資料 => ");
-				scanf("&d",&data);
-				PushStack(&first,data);
+                scanf("%d",&pushData);
+				PushStack(&first,pushData);
 				printf("\n");
 				break;
 			case 2:
 				// POP
-				if(first = NULL){
+				if(first == NULL){
 					printf("堆疊已經是空的了！\n");
 				}else{
 					PopStack(&first);
