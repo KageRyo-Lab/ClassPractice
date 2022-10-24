@@ -3,7 +3,7 @@
 
 void strcat(char S1[], char S2[]);
 
-// ¥Dµ{¦¡
+// ä¸»ç¨‹å¼
 int main(){
 	char s1[]="Data";
 	char s2[]="Structure";
@@ -13,14 +13,14 @@ int main(){
 
 // strcat
 void strcat(char S1[], char S2[]){
-	// ªø«×ÅçÃÒ¼Ò¶ô
+	// é•·åº¦é©—è­‰æ¨¡å¡Š
 	int S1_len=strlen(S1);
-	// ½Æ»s¼Ò¶ô
+	// è¤‡è£½æ¨¡å¡Š
 	int i;
 	for(i=S1_len;S2[i-S1_len]!='\0';i++){
 		S1[i]=S2[i-S1_len];
 	}
 	S1[i]='\0';
-	// ¿é¥X
+	// è¼¸å‡º
 	printf(S1);
 }
