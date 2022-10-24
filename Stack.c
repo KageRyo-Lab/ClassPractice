@@ -38,6 +38,7 @@ int main(){
 				scanf("&d",&data);
 				PushStack(&first,data);
 				printf("\n");
+				break;
 			case 2:
 				// POP
 				if(first = NULL){
@@ -46,6 +47,7 @@ int main(){
 					PopStack(&first);
 				}
 				printf("\n");
+				break;
 			default:
 				// ERROR
 				printf("選項不存在，請重新輸入！\n");
