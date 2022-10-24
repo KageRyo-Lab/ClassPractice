@@ -18,3 +18,7 @@ StrStrcat.c
 LinkedList.c  
 > 鏈結串列練習  
 > 2022/10/03  
+
+Stack.c  
+> 堆疊練習  
+> 2022/10/24  
