@@ -1,19 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
-// µ²ºc 
+// çµæ§‹ 
 typedef struct tagStackList{
 	int data;
 	struct tagStackList *next;
 }StackList;
-// µ{¦¡
+// ç¨‹å¼
 int push(StackList *,int X);
 int pop(StackList *,int *);
-// ¥Dµ{¦¡ 
+// ä¸»ç¨‹å¼ 
 int main(){
-	// §PÂ_°ïÅ|¸ê®Æ¡A¦³¸ê®Æ´N¦L¥X¨Ó
+	// åˆ¤æ–·å †ç–Šè³‡æ–™ï¼Œæœ‰è³‡æ–™å°±å°å‡ºä¾†
 	 
 	// UI 
-	printf("(1)PUSH¸ê®Æ (2)POP¸ê®Æ (0)µ²§ô : ");
+	printf("(1)PUSHè³‡æ–™ (2)POPè³‡æ–™ (0)çµæŸ : ");
 }
 // PUSH
 int push(StackList *S,int X){
