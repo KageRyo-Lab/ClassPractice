@@ -34,14 +34,14 @@ int main(){
 				return 0;
 			case 1:
 				// PUSH
-				print("請輸入欲PUSH的資料 => ")
+				print("請輸入欲PUSH的資料 => ");
 				sacnf("&d",&data);
 				PushStack&first,data);
 				printf("\n")
 			case 2:
 				// POP
 				if(first = NULL){
-					printf("堆疊已經是空的了！\n")
+					printf("堆疊已經是空的了！\n");
 				}else{
 					PopStack(&first);
 				}
