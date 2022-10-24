@@ -66,6 +66,7 @@ void PushStack(Node **start, int value){
 		newNode->next = *start;
 		*start = newNode;
 		return;
+	}
 }
 // POP
 void PopStack(Node **start){
