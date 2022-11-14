@@ -19,9 +19,9 @@ int main(){
 	while(true){
 		// PRINT
 		if(first == NULL){
-			printf("°ïÅ|¬°ªÅ\n");
+			printf("å †ç–Šç‚ºç©º\n");
 		}else{
-			printf("°ïÅ|¤º®e¥Ñ¤W¦Ó¤U¡G\n");
+			printf("å †ç–Šå…§å®¹ç”±ä¸Šè€Œä¸‹ï¼š\n");
 			PrintStack(first);
 		}
 		printf("\n");
@@ -29,7 +29,7 @@ int main(){
 			top=0;
 		}
 		// UI & SELECT 
-		printf("(1)PUSH¸ê®Æ (2)POP¸ê®Æ (0)µ²§ô : ");
+		printf("(1)PUSHè³‡æ–™ (2)POPè³‡æ–™ (0)çµæŸ : ");
 		scanf("%d",&sel);
 		switch(sel){
 			case 0:
@@ -38,7 +38,7 @@ int main(){
 				return 0;
 			case 1:
 				// PUSH
-				printf("½Ð¿é¤J±ýPUSHªº¸ê®Æ => ");
+				printf("è«‹è¼¸å…¥æ¬²PUSHçš„è³‡æ–™ => ");
                 scanf("%d",&pushData);
 				PushStack(&first,pushData);
 				printf("\n");
@@ -46,7 +46,7 @@ int main(){
 			case 2:
 				// POP
 				if(first == NULL){
-					printf("°ïÅ|¤w¸g¬OªÅªº¤F¡I\n");
+					printf("å †ç–Šå·²ç¶“æ˜¯ç©ºçš„äº†ï¼\n");
 				}else{
 					PopStack(&first);
 				}
@@ -54,7 +54,7 @@ int main(){
 				break;
 			default:
 				// ERROR
-				printf("¿ï¶µ¤£¦s¦b¡A½Ð­«·s¿é¤J¡I\n");
+				printf("é¸é …ä¸å­˜åœ¨ï¼Œè«‹é‡æ–°è¼¸å…¥ï¼\n");
 				printf("\n");
 				break;
 		}
@@ -78,11 +78,11 @@ void PushStack(Node **start, int value){
 void PopStack(Node **start){
 	Node *now = *start;
 	*start = now->next;
-	printf("POP ¥X : %d\n",now->data);
+	printf("POP å‡º : %d\n",now->data);
 	free(now);
 	return; 
 }
-// ¦L¥X°ïÅ|¤º®e 
+// å°å‡ºå †ç–Šå…§å®¹ 
 void PrintStack(Node *node){
 	while(node != NULL){
 		printf("%d ", node->data);
@@ -90,7 +90,7 @@ void PrintStack(Node *node){
 	}
 	printf("\n");
 }
-// ÄÀ©ñ°O¾ÐÅéªÅ¶¡
+// é‡‹æ”¾è¨˜æ†¶é«”ç©ºé–“
 void FreeStack(Node *node){
 	Node *now, *tmp;
 	now = node;
