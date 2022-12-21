@@ -17,6 +17,7 @@ public class week15_2 {
                 String show=new String(b,0,n);
                 System.out.println(show);
             }
+            fileInputStream.close();
         }catch (IOException e){
             System.out.println("檔案讀取錯誤");
         }
