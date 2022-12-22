@@ -14,5 +14,5 @@ print(s2)
 
 print("\n\nquestion3: ")
 # 提取s中的偶數並將它們平均
-s3=s[s%2==0].mean()
+s3=s[s%2==0].mean() 
 print(s3)
