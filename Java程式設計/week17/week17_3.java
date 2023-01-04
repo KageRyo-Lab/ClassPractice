@@ -19,5 +19,9 @@ public class week17_3 {
         byteBuffer.clear();
         byteBuffer.put(newData.getBytes());
         byteBuffer.flip();
+        while(byteBuffer.hasRemaining()){
+            fileChannel.write(byteBuffer);
+        }
+        fileChannel.close();
     }
 }
