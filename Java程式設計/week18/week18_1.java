@@ -28,7 +28,7 @@ public class week18_1 {
             System.out.println("(3) "+a+"/"+b+"="+a/b);
         } catch (ArithmeticException e) {
             System.out.println("(3) 除以0："+e.getMessage());
-        }finally {
+        } finally {
             System.out.println("程式結束");
         }
     }
