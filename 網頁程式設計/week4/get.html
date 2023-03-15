@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            console.log(location.search);
+            let parms = new URLSearchParams(location.search);
+            console.log(parms);
+            let parmsList = Array.from(parms);
+            console.log(parmsList);
+        </script>
+    </body>
+</html>
