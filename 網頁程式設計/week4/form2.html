@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"表單元素練習"</title>
+</head>
+<body>
+    <form action="get2.html" method="get">
+        姓名：<input type="text" name="username" id="username" placeholder="請輸入姓名"><br>
+        E-mail：<input type="email" name="email" id="email" placeholder="請輸入E-mail"><br>
+
+        <label for="age">年齡：</label>
+        <input type="radio" name="age" vaule="<20" id="age1">未滿20
+        <input type="radio" name="age" vaule=">=20" id="age2">20以上<br>
+
+        <label for="phone">手機作業系統：</label>
+        <input type="checkbox" name="phone" id="ios">iOS(Apple)
+        <input type="checkbox" name="phone" id="android">Android(Google)
+        <input type="checkbox" name="phone" id="windows">Windows(Microsoft)<br>
+
+        <label for="trouble">常見問題</label>
+        <textarea name="trouble" id="trouble" cols="30" rows="5"></textarea><br>
+
+        <label for="number">電信業者</label>
+        <select name="number" id="number" size="3" multiple>
+            <option value="中華電信">中華電信</option>
+            <option value="台灣大哥大">台灣大哥大（含台灣之星）</option>
+            <option value="遠傳電信">遠傳電信（含亞太電信）</option>
+        </select>
+
+        <input type="hidden" name="id" value="John">
+        <hr>
+        <input type="reset" value="重設">
+        <input type="submit" value="送出">
+    </form>
+</body>
