@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>臺中市路口即時影像</title>
 </head>
+
 <body>
     <!-- 表格 -->
     <table id="data-table">
@@ -45,7 +47,7 @@
 
         // 建立 XMLHttpRequest 物件
         const xHttp = new XMLHttpRequest();
-        xHttp.onload = function(){
+        xHttp.onload = function () {
             const data = JSON.parse(this.responseText);
             createTable(data);
         }
@@ -55,4 +57,5 @@
         xHttp.send();
     </script>
 </body>
+
 </html>
