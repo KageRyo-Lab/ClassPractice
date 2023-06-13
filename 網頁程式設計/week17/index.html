@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!-- 網頁標題和語系 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>臺中市交通局監視器</title>
+    <!-- RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p class="title_text">臺中市交通局監視器公開資料查詢</p>
+    <!-- 介面功能選項 -->
+    <div class="control">
+        <!-- 每頁筆數 -->
+        <label for="num">每頁</label>
+        <input type="number" id="num" style="width: 30px;">
+        <label for="num">筆</label>
+        <!-- 筆數控制 -->
+        <label for="pg">　第</label>
+        <input type="number" id="pg" style="width: 30px;">
+        <label for="pg">頁</label>
+        <div class="space"></div>
+        <!-- 換頁控制 -->
+        <button class="btn" id="prev">上一頁</button>
+        <button class="btn" id="next">下一頁</button>
+        <button class="btn" id="go">前往</button>
+        <div class="space"></div>
+        <!-- 資料搜尋 -->
+        <input type="text" id="filt" style="width: 100px;">
+        <button class="btn" id="find">搜尋</button>
+        <div class="space"></div>
+    </div>
+    <!-- 透過 JavaScript 處理的部分 -->
+    <div id="cnt"></div>
+    <!-- 引入 JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+@media (max-width: 780px) {
+
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(4),
+    td:nth-child(4),
+    th:nth-child(6),
+    td:nth-child(6) {
+        display: none;
+    }
+}
+
+table {
+    border: 1px solid gold;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px 30px;
+    border: 1px solid gold;
+}
+
+th {
+    background-color: aqua;
+}
+
+tr:nth-child(odd) {
+    background-color: antiquewhite;
+}
+
+.title_text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 53);
+}
+
+.control {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 53);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 53);
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 53);
+}
+
+.space {
+    margin: 10px 0;
+}
