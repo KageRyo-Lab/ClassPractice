@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="temp" id="temp">
+    <button id="btnSet">btnSet</button>
+    <button id="btnGet">btnGet</button>
+
+    <script>
+        let btnSet = document.getElementById("btnSet");
+        btnSet.addEventListener("click",()=>{
+            let key = "temp";
+            let value = document.getElementById("temp").value;
+            localStorage.setItem(key,value);
+            // localStorage.setItem("temp",document.getElementById("temp").value);
+        });
+
+        let btnGet = document.getElementById("btnGet");
+        btnGet.addEventListener("click",()=>{
+            let key = "temp";
+            let value = localStorage.getItem(key);
+            document.getElementById("temp").value = value;
+            // document.getElementById("temp").value = localStorage.getItem("temp");
+        });
+
+    </script>
+
+
+</body>
+</html>

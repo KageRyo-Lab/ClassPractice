@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (max-width: 780px) {
+            th:nth-child(3),td:nth-child(3),th:nth-child(4),td:nth-child(4),th:nth-child(6),td:nth-child(6) {
+                display: none;
+            }
+        }
+
+        table{
+            border: 1px solid gold;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px 30px;
+            border: 1px solid gold;
+        }
+        th{
+            background-color: aqua;
+        }
+
+        tr:nth-child(odd) {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <hr>
+    <label for="num">每頁筆數：</label>
+    <input type="number" name="num" id="num" style="width: 30px;" value="5">　　
+    <!-- <input type="text" name="num" id="num"><br> -->
+    <label for="page">第幾頁：</label>
+    <input type="number" name="page" id="page" style="width: 30px;" value="1">　　
+    <button id="prePage"><</button>
+    <button id="lastPage">></button>
+    <button id="goPage">goPage</button>
+
+    <script>
+        fetch('https://datacenter.taichung.gov.tw/Swagger/OpenData/566b84f1-dd8f-4e28-8da7-64e98ece837b').then(response => response.json()).then(data => {
+
+        //建立一個物件陣列
+        let arrObj = data;
+        console.log(arrObj)
+        let page = Number(document.getElementById("page").value);
+        let num =  Number(document.getElementById("num").value);
+        changPage(arrObj, page, num);
+        
+        //到指定頁        
+        let goPage = document.getElementById("goPage");
+        goPage.addEventListener("click",()=>{
+            page = Number(document.getElementById("page").value);
+            num = Number(document.getElementById("num").value);
+            changPage(arrObj, page, num);
+        });
+        
+        //上一頁
+        let prePage = document.getElementById("prePage");
+        prePage.addEventListener("click", ()=>{
+            page = (page > 1) ? page-1 : page;
+            document.getElementById("page").value = page;
+            changPage(arrObj, page, num);
+        });
+        
+        //下一頁
+        let lastPage = document.getElementById("lastPage");
+        lastPage.addEventListener("click", ()=>{
+            page = (page*num < arrObj.length) ? page+1 : page;
+            document.getElementById("page").value = page;
+            changPage(arrObj, page, num);
+        });
+        
+        //只保留陣列中特定範圍的物件
+        function changPage(arrObj, page, num){
+            arrObj2 = arrObj.slice((page-1)*num, page*num);
+            createTable(arrObj2);
+        }
+
+        //建立表格
+        function createTable(arrObj){
+            let container = document.getElementById("container");
+            container.innerHTML = "";
+            let table = document.createElement("table");
+            let colName = Object.keys(arrObj[0]);  //key的陣列
+
+            //產生表格的標題欄位
+            let tr = document.createElement("tr");
+            for (let col=0; col < colName.length; col++){
+                let th = document.createElement("th");
+                th.innerHTML = colName[col];
+                tr.appendChild(th);
+            }
+            table.appendChild(tr);
+
+            //產生表格中各物件的值
+            for (let row=0; row < arrObj.length; row++){
+                // console.log(row);
+                let tr = document.createElement("tr");
+                for (let col=0; col < colName.length; col++){
+                    let td = document.createElement("td");
+                    td.innerHTML =  arrObj[row][colName[col]];
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            container.appendChild(table);
+        }
+        let table = document.querySelector("table");
+        table.addEventListener("click", (e)=>{
+            if (e.target.tagName == "TD" && e.target.cellIndex == 4)
+                window.open(e.target.innerHTML,"","width=500,height=500");
+        })
+
+        let search = "文心";
+        let arrfilter = arrObj.filter(obj => {return obj["roadsection"].includes(search)});
+        arrObj = arrfilter;
+        changPage(arrObj, page, num);
+    })
+    </script>
+</body>
+</html>
