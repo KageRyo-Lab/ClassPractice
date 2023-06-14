@@ -9,6 +9,7 @@ fetch('https://datacenter.taichung.gov.tw/Swagger/OpenData/566b84f1-dd8f-4e28-8d
     .then(response => response.json())
     .then(data => {
         arr = data;
+        document.getElementById("totalRows").value = arr.length; // 更新唯讀文字框
         changePage(arr, pg, num);
     });
 
@@ -20,8 +21,13 @@ function changePage(arrObj, pg, num) {
     let startIndex = (pg - 1) * num;
     let endIndex = pg * num;
 
-    if (startIndex >= arrObj.length || startIndex < 0) startIndex = 0;
-    if (endIndex > arrObj.length || endIndex <= 0) endIndex = arrObj.length;
+    // 在超出總筆數範圍時，彈出警示
+    if (startIndex < 0 || startIndex >= arrObj.length) {
+        alert("您所輸入的頁數超出範圍，請重新輸入！");
+        return;
+    }
+
+    if (endIndex > arrObj.length) endIndex = arrObj.length;
 
     let slicedArr = arrObj.slice(startIndex, endIndex);
     let tr = document.createElement("tr");
@@ -45,9 +51,10 @@ function changePage(arrObj, pg, num) {
 
     tbl.addEventListener("click", (e) => {
         if (e.target.tagName == "TD" && e.target.cellIndex == 4)
-            window.open(e.target.innerHTML, "", "width=500,height=500");
+            window.open(e.target.innerHTML, "", "width=500,height=400");
     });
 }
+
 
 let go = document.getElementById("go");
 go.addEventListener("click", () => {
@@ -81,10 +88,12 @@ find.addEventListener("click", () => {
         .then(response => response.json())
         .then(data => {
             let filtVal = document.getElementById("filt").value;
-            arr = (data.filter(obj => obj["roadsection"].includes(filtVal)).length == 0)
-                ? data : data.filter(obj => obj["roadsection"].includes(filtVal));
+            let filteredData = data.filter(obj => obj["roadsection"].includes(filtVal));
+            arr = (filteredData.length == 0) ? data : filteredData;
+            document.getElementById("totalRows").value = arr.length; // 更新唯讀文字框
             pg = 1;
             localStorage.setItem("pg", pg);
             changePage(arr, pg, num);
         });
 });
+
