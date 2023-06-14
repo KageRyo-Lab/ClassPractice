@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!-- 網頁標題和語系 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>臺中市監視器</title>
+    <!-- RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 CSS -->
+    <style>
+        @media (max-width: 780px) {
+
+            th:nth-child(3),
+            td:nth-child(3),
+            th:nth-child(4),
+            td:nth-child(4),
+            th:nth-child(6),
+            td:nth-child(6) {
+                display: none;
+            }
+        }
+
+        table {
+            border: 1px solid gold;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px 30px;
+            border: 1px solid gold;
+        }
+
+        th {
+            background-color: aqua;
+        }
+
+        tr:nth-child(odd) {
+            background-color: antiquewhite;
+        }
+
+        .title_text {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(0, 0, 53);
+        }
+
+        .control {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: rgb(0, 0, 53);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid rgb(0, 0, 53);
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(0, 0, 53);
+        }
+
+        .space {
+            margin: 10px 0;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            color: rgb(0, 0, 53);
+        }
+
+        .count {
+            margin-left: 50px;
+            margin-block-end: 10px;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(0, 0, 53);
+        }
+    </style>
+</head>
+
+<body>
+    <p class="title_text">臺中市監視器公開資料查詢</p>
+    <!-- 介面功能選項 -->
+    <div class="control">
+        <!-- 每頁筆數 -->
+        <label for="num">每頁</label>
+        <input type="number" id="num" style="width: 30px;">
+        <label for="num">筆</label>
+        <!-- 筆數控制 -->
+        <label for="pg">　第</label>
+        <input type="number" id="pg" style="width: 30px;">
+        <label for="pg">頁</label>
+        <div class="space"></div>
+        <!-- 換頁控制 -->
+        <button class="btn" id="prev">上一頁</button>
+        <button class="btn" id="next">下一頁</button>
+        <button class="btn" id="go">前往</button>
+        <div class="space"></div>
+        <!-- 資料搜尋 -->
+        <input type="text" id="filt" style="width: 100px;">
+        <button class="btn" id="find">搜尋</button>
+        <div class="space"></div>
+    </div>
+    <!-- 計算總筆數 -->
+    <div class="count">
+        共 <input type="text" id="totalRows" readonly> 筆
+    </div>
+    <!-- 透過 JavaScript 處理的部分 -->
+    <div id="cnt"></div>
+    <div class="space"></div>
+    <!-- 註腳 -->
+    <div class="description">
+        由 <a href="https://kageryo.coderyo.com/" target="_blank">智產技優二1 張健勳</a> 開發 ． 資料來源：臺中市政府資料開放平臺 ． 資料連結：<a
+            href="https://opendata.taichung.gov.tw/" target="_blank">臺中市政府資料開放平台</a>
+    </div>
+    <div class="space"></div>
+    <!-- 引入 JavaScript -->
+    <script>
+        // 宣告陣列和變數，並取得本地儲存的頁數(pg)和每頁顯示的筆數(num)
+        let arr = [];
+        let pg = localStorage.getItem("pg") ? parseInt(localStorage.getItem("pg")) : 1;
+        let num = localStorage.getItem("num") ? parseInt(localStorage.getItem("num")) : 5;
+
+        // 將每頁顯示的筆數和頁數設定到對應的輸入框
+        document.getElementById("num").value = num;
+        document.getElementById("pg").value = pg;
+
+        // 用fetch函數取得資料，並將取得的資料儲存到arr陣列中
+        fetch('https://datacenter.taichung.gov.tw/Swagger/OpenData/566b84f1-dd8f-4e28-8da7-64e98ece837b')
+            .then(response => response.json())
+            .then(data => {
+                arr = data;
+                document.getElementById("totalRows").value = arr.length; // 更新唯讀文字框
+                changePage(arr, pg, num);
+            });
+
+        // changePage函數：負責根據頁數和每頁的筆數來更新顯示的資料
+        function changePage(arrObj, pg, num) {
+            let cnt = document.getElementById("cnt");
+            cnt.innerHTML = "";
+            let tbl = document.createElement("table");
+            let colName = Object.keys(arrObj[0]);
+            let startIndex = (pg - 1) * num;
+            let endIndex = pg * num;
+
+            // 在超出總筆數範圍時，彈出警示
+            if (startIndex < 0 || startIndex >= arrObj.length) {
+                alert("您所輸入的頁數超出範圍，請重新輸入！");
+                return;
+            }
+
+            if (endIndex > arrObj.length) endIndex = arrObj.length;
+
+            let slicedArr = arrObj.slice(startIndex, endIndex);
+            let tr = document.createElement("tr");
+            for (let col = 0; col < colName.length; col++) {
+                let th = document.createElement("th");
+                th.innerHTML = colName[col];
+                tr.appendChild(th);
+            }
+            tbl.appendChild(tr);
+
+            for (let row = 0; row < slicedArr.length; row++) {
+                let tr = document.createElement("tr");
+                for (let col = 0; col < colName.length; col++) {
+                    let td = document.createElement("td");
+                    td.innerHTML = slicedArr[row][colName[col]];
+                    tr.appendChild(td);
+                }
+                tbl.appendChild(tr);
+            }
+            cnt.appendChild(tbl);
+
+            // 處理表格中的點擊事件，當點擊到表格內的連結時，會開啟新視窗顯示該連結
+            tbl.addEventListener("click", (e) => {
+                if (e.target.tagName == "TD" && e.target.cellIndex == 4)
+                    window.open(e.target.innerHTML, "", "width=500,height=400");
+            });
+        }
+
+        // 在點擊前往按鈕時，會根據輸入框的頁數和每頁的筆數更新顯示的資料
+        let go = document.getElementById("go");
+        go.addEventListener("click", () => {
+            pg = Number(document.getElementById("pg").value);
+            num = Number(document.getElementById("num").value);
+            localStorage.setItem("pg", pg);
+            localStorage.setItem("num", num);
+            changePage(arr, pg, num);
+        });
+
+        // 在點擊上一頁按鈕時，會將頁數減一並更新顯示的資料
+        let prev = document.getElementById("prev");
+        prev.addEventListener("click", () => {
+            pg = (pg > 1) ? pg - 1 : pg;
+            document.getElementById("pg").value = pg;
+            localStorage.setItem("pg", pg);
+            changePage(arr, pg, num);
+        });
+
+        // 在點擊下一頁按鈕時，會將頁數加一並更新顯示的資料
+        let next = document.getElementById("next");
+        next.addEventListener("click", () => {
+            pg = (pg * num < arr.length) ? pg + 1 : pg;
+            document.getElementById("pg").value = pg;
+            localStorage.setItem("pg", pg);
+            changePage(arr, pg, num);
+        });
+
+        // 在點擊查詢按鈕時，會根據輸入框的內容過濾資料並更新顯示的資料
+        let find = document.getElementById("find");
+        find.addEventListener("click", () => {
+            document.getElementById("cnt").innerHTML = "";
+            fetch('https://datacenter.taichung.gov.tw/Swagger/OpenData/566b84f1-dd8f-4e28-8da7-64e98ece837b')
+                .then(response => response.json())
+                .then(data => {
+                    let filtVal = document.getElementById("filt").value;
+                    let filteredData = data.filter(obj => obj["roadsection"].includes(filtVal));
+                    arr = (filteredData.length == 0) ? data : filteredData;
+                    document.getElementById("totalRows").value = arr.length; // 更新唯讀文字框
+                    pg = 1;
+                    localStorage.setItem("pg", pg);
+                    changePage(arr, pg, num);
+                });
+        });
+    </script>
+</body>
+
+</html>
