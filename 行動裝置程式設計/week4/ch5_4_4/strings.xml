@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">D20231012-6</string>
+
+    <string-array name="Balls">
+        <item>籃球</item>
+        <item>足球</item>
+        <item>棒球</item>
+        <item>其他</item>
+    </string-array>
+
+</resources>

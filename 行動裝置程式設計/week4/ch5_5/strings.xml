@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">D20231012-7</string>
+    <string name="food_prompt">愛吃什麼？</string>
+    <string-array name="food_array">
+        <item>蚵仔麵線</item>
+        <item>臭豆腐</item>
+        <item>蔥油餅</item>
+    </string-array>
+    <string name="place_prompt">愛去哪玩？</string>
+</resources>
