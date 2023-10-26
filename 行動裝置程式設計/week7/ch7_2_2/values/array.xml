@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting">
+        <item>無線和網路</item>
+        <item>設備</item>
+        <item>個人</item>
+        <item>系統</item>
+        </string-array>
+</resources>
