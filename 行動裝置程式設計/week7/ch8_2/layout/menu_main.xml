@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ehappy.exmenu.MainActivity">
+    <item
+        android:id="@+id/menu_about"
+        android:orderInCategory="0"
+        app:showAsAction="never"
+        android:title="關於..." />
+    <item
+        android:id="@+id/menu_quit"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:title="結束" />
+</menu>
