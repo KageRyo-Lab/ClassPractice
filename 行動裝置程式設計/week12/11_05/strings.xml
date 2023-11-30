@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ch08內部記憶體資料</string>
+    <string name="tvPtFPath">原始檔案路徑： assests/intro.txt</string>
+    <string name="btPtBut1">儲存檔案到內部記憶體</string>
+    <string name="btPtBut2">自內部記憶體讀檔案</string>
+</resources>

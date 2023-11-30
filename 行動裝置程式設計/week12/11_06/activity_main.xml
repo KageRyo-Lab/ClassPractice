@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android=
+    "http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView  android:id="@+id/tvIdFlowPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/tvPtFPath" />
+    <ImageView android:id="@+id/ivIdFlow"
+        android:layout_width="300sp"
+        android:layout_height="200sp"
+        android:contentDescription="@string/ivContDesc"  />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <Button
+            style="@style/AppBaseTheme"
+            android:id="@+id/btIdSvPub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtBut1" />
+        <Button android:id="@+id/btIdRdPub"
+            style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtBut2" />
+    </LinearLayout>
+</LinearLayout>
