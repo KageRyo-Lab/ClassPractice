@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="app_name">Ch12查詢記錄</string>
+    <string name="tvPtTitle">輸入欲查詢的 客戶編號 ：</string>
+    <string name="tvPtCusNo">客戶編號：</string>
+    <string name="btPtOk">確定</string>
+    <string name="htCusNo">在此輸入客戶編號</string>
+</resources>
