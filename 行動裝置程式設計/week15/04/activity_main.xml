@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android=
+    "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvPtCusNo"/>
+        <EditText
+            android:id="@+id/etIdCusNo"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:hint="@string/htCusNo"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvPtCusNa" />
+        <EditText
+            android:id="@+id/etIdCusNa"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:hint="@string/htCusNa"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvPtCusPho" />
+        <EditText
+            android:id="@+id/etIdCusPho"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="phone" 
+            android:hint="@string/htCusPho"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvPtCusAdd" />
+        <EditText
+            android:id="@+id/etIdCusAdd"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:hint="@string/htCusAdd"/>
+    </LinearLayout>    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >       
+         <Button
+             android:id="@+id/btIdIns"
+             style="@style/AppBaseTheme"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/btPtIns"
+             android:textSize="14sp" />
+        <Button
+            android:id="@+id/btIdCls"
+             style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtCls" />
+        <Button
+            android:id="@+id/btIdList"
+             style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtList" />
+    </LinearLayout>       
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:orientation="horizontal" >        
+        <Button
+            android:id="@+id/btIdQry"
+             style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtQry" />
+        <Button
+            android:id="@+id/btIdEdit"
+             style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtEdit" />
+        <Button
+            android:id="@+id/btIdDel"
+             style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/btPtDel" />
+    </LinearLayout>       
+    <TextView
+        android:id="@+id/tvIdHead"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvPtHead" />
+    <EditText
+        android:id="@+id/etIdResult"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:hint=""/>
+</LinearLayout>

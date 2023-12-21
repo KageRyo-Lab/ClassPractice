@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="btPtBeg">按此鈕開始</string>
+    <string name="ibContDesc">flow</string>
+</resources>

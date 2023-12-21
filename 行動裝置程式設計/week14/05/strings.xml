@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="tvPtTitle">
+        示範View物件(EditText動畫)-按鈕後文字會搖動</string>
+    <string name="btPtlogin">登入帳號</string>
+    <string name="htAccNo">在此輸入帳號</string>
+</resources>

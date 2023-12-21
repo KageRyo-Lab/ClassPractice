@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="tvPtTitle">
+        示範ViewFlipper物件動畫-套用不同動畫效果</string>
+    <string name="tvPt1">自由自在</string>
+    <string name="tvPt2">天空很藍</string>
+    <string name="tvPt3">夢想起飛</string>
+    <string name="tvPt4">幸福人生</string>
+    <string name="tvPt5">請選擇一個動畫</string>
+</resources>
