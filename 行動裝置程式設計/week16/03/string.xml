@@ -1,0 +1,23 @@
+  <?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidDemo2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="strSet">串口設置</string>
+    <string name="strTemp">溫度範圍:</string>
+    <string name="strOr">至</string>
+    <string name="strHumi">濕度範圍:</string>
+    <string name="strLight">光照強度:</string>
+    <string name="strCo">一氧化碳:</string>
+    <string name="strSave">保持</string>
+    <string name="strChean">重置</string>
+    <string name="strClose">取消</string>
+    
+    <string name="strOpenPort">打開串口</string>
+    <string name="strClosePort">關閉串口</string>
+    <string name="strBaud">串列傳輸速率:</string>
+    <string name="strCom">COM:</string>
+    
+
+</resources>

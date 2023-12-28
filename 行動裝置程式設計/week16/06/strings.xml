@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ch13內容提供者</string>
+    <string name="tvPtHead">客戶資料：</string>
+    <string name="tvPtCusNo">客戶編號：</string>
+    <string name="tvPtCusNa">客戶姓名：</string>
+    <string name="tvPtCusPho">客戶電話：</string>
+    <string name="tvPtCusAdd">客戶地址：</string>
+    <string name="btPtIns">新增記錄</string>
+    <string name="btPtCls">清除欄位</string>
+    <string name="btPtList">顯示所有記錄</string>
+    <string name="btPtQry">查詢記錄</string>
+    <string name="btPtEdit">修改記錄</string>
+    <string name="btPtDel">刪除記錄</string>
+    <string name="htCusNo">在此輸入客戶編號</string>
+    <string name="htCusNa">在此輸入客戶姓名</string>
+    <string name="htCusPho">在此輸入客戶電話</string>
+    <string name="htCusAdd">在此輸入客戶地址</string>
+</resources>

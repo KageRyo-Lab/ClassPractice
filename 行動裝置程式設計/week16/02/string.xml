@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidDemo4_1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="strSet">設置</string>
+    <string name="strTemp">溫度範圍:</string>
+    <string name="strOr">至</string>
+    <string name="strHumi">濕度範圍:</string>
+    <string name="strLight">光照強度:</string>
+    <string name="strCo">一氧化碳:</string>
+    <string name="strSave">保存</string>
+    <string name="strChean">重置</string>
+    <string name="strClose">讀取</string>
+    
+
+</resources>

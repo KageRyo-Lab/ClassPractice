@@ -1,0 +1,176 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_shopping"
+    android:orientation="horizontal" >
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="30dp"
+    android:background="@drawable/bg_frame_descend_small"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:text="20150826000"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="8dip"
+        android:text="李四"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="8dip"
+        android:text="136********"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="8dip"
+        android:text="XX省XX市XX縣XX街道"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="8dip"
+        android:text="114"
+        android:textColor="@color/white" />
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="8dip" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/shape_table"
+                android:text="商品名稱"
+                android:id="@+id/txt"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/shape_table"
+                android:text="商品數量"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_table"
+                android:text="單價"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="@drawable/shape_table" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/shape_table"
+                android:text="伊利暢輕牛奶"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/shape_table"
+                android:text="50"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_table"
+                android:text="2"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="@drawable/shape_table" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/tableLayout1"
+        android:layout_below="@+id/tableLayout1"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_return_normal" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/tableLayout1"
+        android:layout_alignTop="@+id/btnInsert" />
+
+    <ImageView
+        android:id="@+id/imgSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tableLayout1"
+        android:layout_alignTop="@+id/textView1"
+        android:src="@drawable/btn_inventory_select" />
+
+</RelativeLayout>
+
+</LinearLayout>
