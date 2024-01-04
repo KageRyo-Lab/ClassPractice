@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/select"/>
+
+    <TextView
+        android:id="@+id/tvWifi"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:textColor="#404040"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/ivWifiSignal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:src="@drawable/wifi1"/>
+
+</LinearLayout>
