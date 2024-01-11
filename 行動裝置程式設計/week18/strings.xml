@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ch12更新記錄</string>
+    <string name="tvPtTitle">請輸入學生資料 ：</string>
+    <string name="tvPtCusNo">學號：</string>
+    <string name="tvPtCusNa">姓名：</string>
+    <string name="tvPtCusPho">成績：</string>
+    <string name="tvPtCusAdd">科目：</string>
+    <string name="btPtNext">下一筆</string>
+    <string name="btPtPrev">上一筆</string>
+    <string name="btPtEdit">修改</string>
+    <string name="btPtDel">刪除</string>
+    <string name="htCusNo">在此輸入學號</string>
+    <string name="htCusNa">在此輸入姓名</string>
+    <string name="htCusPho">在此輸入成績</string>
+    <string name="htCusAdd">在此輸入科目</string>
+</resources>
