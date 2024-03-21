@@ -28,7 +28,7 @@ list_scores=[[90,50,70,70],
              [33,87,96,59]]
 
 df2 = pd.DataFrame(list_scores)
-df2 = pd.DataFrame(list_scores,columns=['Math','English','History'])#錯的
+df2 = pd.DataFrame(list_scores, columns=['Math', 'English', 'History', 'Chinese'])
 
 df2_c = pd.DataFrame(list_scores,columns=['Simon', 'Allen', 'Mary', 'Dora'])
 df2_i = pd.DataFrame(list_scores,index=['Math','English','History'])
@@ -52,7 +52,7 @@ print(df3)
 df=pd.DataFrame(list_scores,['Simon', 'Allen', 'Mary', 'Dora'],
                             ['Math','English','History'])
 df_copy=df
-df_orig = df_copy()
+df_orig = df_copy.copy()
 id(df)
 id(df_orig)
 id(df_copy)
@@ -113,11 +113,11 @@ df = df.rename (index = {'Jones': 'Dora', 'Simons': 'Simon'}) #直接指定修�
 # DataFrame索引鍵的修改:列或欄
 # =============================================================================
 df = df_orig.copy()
-df.value[0, 2] = 100
+df.iloc[0, 2] = 100
 
 # 改單一索引鍵用rename
-df.column[0] = 'Mathematic' #(X)
-df.index[3] = 'Dabby' # (X)
+#df.column[0] = 'Mathematic' #(X)
+#df.index[3] = 'Dabby' # (X)
 
 df.columns = ['M.', 'E.', 'H.'] #與.rename()不同.columns 會直接改變 df 的索引鍵
 df.index = list('SAMD') #數量必須與DataFrame的列數一致
@@ -159,7 +159,7 @@ df[ ['History']]#跟上面的結果比較一下兩者之間究竟有什麼差異
 # (2) 同時取出多個欄
 df[['English', 'Math']] # Have to use the form of listdf[ ['English', 'Math', 'Chinese'] ]                                                                                                                                                                                                                                                                                                                                                                                                                     
 df[['Chinese', 'English', 'Math']] # DataFrame的順序隨串列順序而定
-df['English', 'Math', 'Chinese'] #(X)若直接在中括內使用字串會出錯哦~!!
+#df['English', 'Math', 'Chinese'] #(X)若直接在中括內使用字串會出錯哦~!!
 
 df.columns[3]
 df.columns[1 : 3]# 可以直接用"位置"取得指定欄索引鍵的特定名稱 (格式為字串) 
@@ -193,7 +193,7 @@ df.iloc[[2, 0, 1],2]
 df.loc['Simon' : 'Mary'] # 列索引鍵或欄索引鍵一樣可以用" : "執行連續範圍取值
 #df['Simon' : 'Mary'] 與上一列功能相同
 #df['English' : 'Chinese'] #(X)不能用在欄索引
-df.loc['English' : 'Chinese'] # (X) 預設是列索引鍵在前，所以直接這樣打是不行的!!
+#df.loc['English' : 'Chinese'] # (X) 預設是列索引鍵在前，所以直接這樣打是不行的!!
 #df.loc[列 : 列, 行 : 行]
 df.loc[ : , 'English' : 'Chinese'] # 須要利用欄索引鍵時，列索引鍵的參數位置必須要填上" : "
 df.loc['Simon' : 'Allen', : ] # 欄索引鍵的參數位置可不填" : " (養成好習慣!!強烈建議填上)
@@ -222,19 +222,22 @@ df.reindex(columns = ['Gender', 'Class', 'Chinese', 'English', 'Math', 'History'
 #df.drop(labels = ['Class','Gender'],axis = 1,inplace = True) #回復原本資料
 
 df.loc['Nancy'] = np.nan # 新增一列時必須使用.loc 函數，且默認加在最後一列
-df.loc[['Simon','Dore']]
-df.loc[['A', 'B']] = np.nan # (X) 無法一次新增多列
+df.loc[['Simon','Dora']]
+#df.loc[['A', 'B']] = np.nan # (X) 無法一次新增多列
 
-df.loc['Alisa'] = ['Female', 90, 95, 87, 98] # (X) 注意串列內元素的數量須與欄位數量一致
-df.loc['Alisa'] = ['Female', 2, 90, 95, 87, 98] # 務必注意新增的資料順序是否如你所想的那樣!!
+#df.loc['Alisa'] = ['Female', 90, 95, 87, 98] # (X) 注意串列內元素的數量須與欄位數量一致
+df.loc['Alisa'] = ['Female', np.nan, 2, 90, 95, 87, 98]
 df.reindex(index = ['Allen', 'Alisa', 'Dora', 'Mary', 'Simon']) # 調整列索引鍵順序時，參數為index
 
-df.drop(ladels='Alisa') # 刪除特定列時，可省略 axis 參數(預設)
-df.drop(ladels=['Nancy', 'Alisa']) # 同時刪除多列時記得使用串列df.drop (['Nancy', 'Alisa'], axis = 'index') # 建議各位捨棄0 與1，寫清楚~
-df.drop(ladels=['Nancy', 'Alisa'],axis='index') 
-df.drop(ladels='Gender', axis = 'columns') # 刪除欄時務必使用axis 參數df.drop(['Gender', 'Class'], axis = 'columns') # 同時刪除多欄時記得使用串列
+df.drop(labels='Alisa') # 刪除特定列時，可省略 axis 參數(預設)
+df.drop(labels=['Nancy', 'Alisa']) # 同時刪除多列時記得使用串列df.drop (['Nancy', 'Alisa'], axis = 'index') # 建議各位捨棄0 與1，寫清楚~
+df.drop(labels=['Nancy', 'Alisa'],axis='index') 
+df.drop(labels='Gender', axis='columns') # 刪除欄時務必使用axis 參數df.drop(['Gender', 'Class'], axis = 'columns') # 同時刪除多欄時記得使用串列
 print(df)
-df.drop(ladels='Gender', axis = 'columns',inplace=True)
+print(df.columns)
+
+if 'Gender' in df.columns:
+    df.drop(labels='Gender', axis='columns', inplace=True)
 
 df.rename({'Nancy' : 'Nico'}, axis = 'index', inplace = True) # 利用大括號{ } 調整列索引鍵名稱
 df['Average'] = df.mean(axis = 'columns') # 計算平均時，NaN會自動被忽略
@@ -299,7 +302,7 @@ df['Date(x)'] = ['2019-01-29', '2020-02-27', '2021-02-28', '2022-09-29'] # 每�
 df['Date(o)'] = pd.to_datetime(['2019-01-29', '2020-02-27', '2021-02-28', '2022-09-29'])
 print(df)
 
-df['Date(x)'] + pd.Timedelta(days = 2) # (X)只是文字
+#df['Date(x)'] + pd.Timedelta(days = 2) # (X)只是文字
 df['Date(o)'] + pd.Timedelta(days = 2) # 指令可換成：pd.Timedelta(2, 'D')可以跨天, (M, Y, y 功能已被取消)
 
 df['Date(M)'] = pd.to_datetime(['2022-01', '2022-02', '2022-03', '2022-04']) # 未完整自動採記當月1 日
