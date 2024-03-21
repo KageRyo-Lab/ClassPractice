@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+智產技優三1
+1411068014
+張健勳
 """
 
 import numpy as np 
