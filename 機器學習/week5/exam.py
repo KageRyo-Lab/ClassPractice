@@ -3,6 +3,7 @@
 智產技優三1
 1411068014
 張健勳
+[更新]
 """
 import numpy as np
 import pandas as pd
@@ -29,6 +30,9 @@ print(df)
 ### 填補缺失值
 
 df.fillna(0, inplace=True)  # 填補缺失值為0
+
+### 新增同學
+df.loc['Bryant'] = [85, 75, 80, 'Male']
 
 ### 平均
     
