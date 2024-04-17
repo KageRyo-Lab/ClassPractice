@@ -61,7 +61,7 @@ print(x_obj_na)
 
 # 獨熱編碼
 from sklearn.preprocessing import OneHotEncoder
-oh = OneHotEncoder(sparse = False) # 獨熱編碼轉換器 (sparse = False 可輸出 array資料型態)
+oh = OneHotEncoder(sparse_output = False) # 獨熱編碼轉換器 (sparse = False 可輸出 array資料型態)
 x_obj_na_oh = oh.fit_transform(x_obj_na) # 將每個類別欄位的資料取出相應的虛擬變數矩陣
 print(x_obj_na_oh) # 誰能告訴我…每個欄位分別代表什麼呢?
 
